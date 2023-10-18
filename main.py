@@ -10,12 +10,10 @@ app = FastAPI()
 @app.get("/category")
 def get_categories():
     list_categories = get_all_categories()
-    json_object = json.dumps([obj.__dict__ for obj in list_categories], ensure_ascii=False).encode("utf-8")
-
-    return json_object
+    return list_categories
 
 @app.post("/category")
 def post_category(category: Category):
-     create_category(category)
+     generated_id = create_category(category)
      
-     return JSONResponse(content={"message": "OK"})
+     return JSONResponse(content={"id": generated_id}, status_code=201)
