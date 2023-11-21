@@ -8,5 +8,6 @@ config = {
   'raise_on_warnings': True
 }
 
+
 def open_connection():
     return mysql.connector.connect(**config)

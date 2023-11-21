@@ -7,7 +7,9 @@ from helpers.connection import open_connection
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+
 def create_category(category):
+    generated_id = ''
     try:
         con = open_connection()
         cursor = con.cursor()
